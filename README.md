@@ -10,7 +10,6 @@
 
 ## About
 The libft project asks you to recode a few functions of the C standard library as well as some other utility functions.
-You must use the command ar to create your library. Using the libtool command is forbidden.
 
 ## Usage
 In order to use the functions of libft the following steps must be completed:
