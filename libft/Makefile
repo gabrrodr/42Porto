@@ -6,7 +6,7 @@
 #    By: gabrrodr <gabrrodr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 17:01:03 by gabrrodr          #+#    #+#              #
-#    Updated: 2023/04/26 12:27:42 by gabrrodr         ###   ########.fr        #
+#    Updated: 2023/04/24 13:33:50 by gabrrodr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,7 @@ MDT =	ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c \
-
-BNS =	ft_lstnew.c \
+	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
@@ -54,7 +53,17 @@ BNS =	ft_lstnew.c \
 	ft_lstclear.c \
 	ft_lstiter.c \
 	ft_lstmap.c \
-	
+	ft_put.c \
+	ft_putstr.c \
+	ft_pointer.c \
+	ft_dohex.c \
+	ft_putnbr_dec.c \
+	ft_putnbr.c \
+	ft_printf.c \
+	get_next_line.c \
+	get_next_line_utils.c \
+
+
 CC = cc
 
 RM = rm -f
@@ -62,7 +71,6 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 OBJ_MDT = $(MDT:.c=.o)
-OBJ_BNS = $(BNS:.c=.o)
 
 NAME = libft.a
 
@@ -71,13 +79,10 @@ all : $(NAME)
 $(NAME): $(OBJ_MDT)
 	ar rcs $(NAME) $(OBJ_MDT)
 
-bonus: $(OBJ_MDT) $(OBJ_BNS)
-	ar rcs $(NAME) $(OBJ_BNS) $(OBJ_MDT)
-	
 clean:
-	$(RM) $(OBJ_MDT) $(OBJ_BNS)
-	
+	$(RM) $(OBJ_MDT)
+
 fclean: clean
 	$(RM) $(NAME)
-	
+
 re : fclean $(NAME)

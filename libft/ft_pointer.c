@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabrrodr <gabrrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 14:58:39 by gabrrodr          #+#    #+#             */
-/*   Updated: 2023/04/20 14:48:58 by gabrrodr         ###   ########.fr       */
+/*   Created: 2023/04/28 15:34:51 by gabrrodr          #+#    #+#             */
+/*   Updated: 2023/05/03 14:46:54 by gabrrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_pointer(size_t ptr)
 {
-	if (c >= '0' && c <= '9')
+	int	len;
+
+	if (ptr == 0)
 	{
-		return (1);
+		ft_putstr("(nil)");
+		return (5);
 	}
-	return (0);
+	len = 0;
+	ft_putstr("0x");
+	len = ft_dohex(ptr, 'x');
+	return (len + 2);
 }
-
-/*
-int main(void)
-{
-    int c = '8';
-
-    printf("%d", ft_isdigit(c));
-}
-*/

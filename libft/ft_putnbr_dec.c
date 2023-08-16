@@ -1,31 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_dec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabrrodr <gabrrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 14:58:39 by gabrrodr          #+#    #+#             */
-/*   Updated: 2023/04/20 14:48:58 by gabrrodr         ###   ########.fr       */
+/*   Created: 2023/05/02 11:38:46 by gabrrodr          #+#    #+#             */
+/*   Updated: 2023/05/02 13:51:51 by gabrrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+static int	len_dec(int n)
 {
-	if (c >= '0' && c <= '9')
+	int	len;
+
+	len = 0;
+	if (n == 0)
 	{
 		return (1);
 	}
-	return (0);
+	if (n < 0)
+	{
+		n = -n;
+		len++;
+	}
+	while (n != 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
 
-/*
-int main(void)
+int	ft_putnbr_dec(int n)
 {
-    int c = '8';
+	int	len;
 
-    printf("%d", ft_isdigit(c));
+	len = len_dec(n);
+	if (n == MIN_INT)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_dec(n / 10);
+		ft_putnbr_dec(n % 10);
+	}
+	else
+		ft_putchar(n + '0');
+	return (len);
 }
-*/

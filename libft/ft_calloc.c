@@ -6,7 +6,7 @@
 /*   By: gabrrodr <gabrrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:38:22 by gabrrodr          #+#    #+#             */
-/*   Updated: 2023/04/20 14:52:25 by gabrrodr         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:41:15 by gabrrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	total;
-	void	*dst;
+	unsigned char	*dst;
 
-	total = nmemb * size;
-	dst = malloc(total);
+	dst = malloc(nmemb * size);
 	if (!dst)
 	{
-		return (NULL);
+		return (0);
 	}
-	ft_bzero(dst, total);
+	ft_bzero(dst, nmemb * size);
 	return (dst);
 }

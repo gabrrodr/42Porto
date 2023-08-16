@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_put.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabrrodr <gabrrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 14:58:39 by gabrrodr          #+#    #+#             */
-/*   Updated: 2023/04/20 14:48:58 by gabrrodr         ###   ########.fr       */
+/*   Created: 2023/04/28 13:58:58 by gabrrodr          #+#    #+#             */
+/*   Updated: 2023/05/02 14:00:44 by gabrrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+size_t	ft_putstr(char *str)
 {
-	if (c >= '0' && c <= '9')
+	size_t	i;
+
+	i = 0;
+	if (!str)
 	{
-		return (1);
+		ft_putstr("(null)");
+		return (6);
 	}
-	return (0);
+	while (str[i])
+	{
+		write(1, &str[i++], 1);
+	}
+	return (i);
 }
 
-/*
-int main(void)
+int	ft_putchar(char c)
 {
-    int c = '8';
-
-    printf("%d", ft_isdigit(c));
+	write(1, &c, 1);
+	return (1);
 }
-*/

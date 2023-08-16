@@ -1,31 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_dohex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabrrodr <gabrrodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 14:58:39 by gabrrodr          #+#    #+#             */
-/*   Updated: 2023/04/20 14:48:58 by gabrrodr         ###   ########.fr       */
+/*   Created: 2023/04/28 17:01:54 by gabrrodr          #+#    #+#             */
+/*   Updated: 2023/05/02 14:00:03 by gabrrodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+static int	do_len(size_t n)
 {
-	if (c >= '0' && c <= '9')
+	int	len;
+
+	len = 1;
+	while (n > 15)
 	{
-		return (1);
+		n /= 16;
+		len ++;
 	}
-	return (0);
+	return (len);
 }
 
-/*
-int main(void)
+int	ft_dohex(size_t n, char c)
 {
-    int c = '8';
+	int	len;
 
-    printf("%d", ft_isdigit(c));
+	len = do_len(n);
+	if (n > 15)
+	{
+		ft_dohex(n / 16, c);
+		ft_dohex(n % 16, c);
+	}
+	else
+	{
+		if (c == 'x')
+		{
+			ft_putchar(BASE_LOWER[n]);
+		}
+		else
+			ft_putchar(BASE_UPPER[n]);
+	}
+	return (len);
 }
-*/
